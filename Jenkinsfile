@@ -9,5 +9,5 @@ node {
   sh("/var/jenkins_home/kubernetes/client/bin/kubectl get namespaces")
   sh("/var/jenkins_home/kubernetes/client/bin/kubectl --namespace=default create secret docker-registry gcr-json-key-2 --docker-server=https://gcr.io --docker-username=_json_key --docker-email=blah@blah.com --docker-password=\"\$(cat /var/jenkins_home/gcr.json)\"")
   sh("/var/jenkins_home/kubernetes/client/bin/kubectl --namespace=default patch serviceaccount default -p '{\"imagePullSecrets\": [{\"name\": \"gcr-json-key-2\"}]}'")
-  sh("/var/jenkins_home/kubernetes/client/bin/kubectl run test-app-3 --image=gcr.io/mgcp-ops-sandbox/blahblah:v1 --port 8080 --namespace=default")
+  sh("/var/jenkins_home/kubernetes/client/bin/kubectl run test-app-4 --image=gcr.io/mgcp-ops-sandbox/blahblah:v1 --port 8080 --namespace=default")
 }
